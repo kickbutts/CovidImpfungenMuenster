@@ -76,7 +76,7 @@ drei=alt.Chart(df_Münster_Anteilig).mark_bar(color='blue').encode(
 final=(erst + zweit+drei).properties(
     title={
     'text':'Impfquote in Münster nach Altersgruppen Datum:'+datum,
-    'subtitle':['Datenqulle: RKI',]
+    'subtitle':['Datenquelle: RKI',]
           }, width=800,height=200)
 #final.encode(X('Erste Dosis Anteilig', scale=Scale(domain=[0, 100])))
 final.save('website/ImpfQuoteMuenster.html')
