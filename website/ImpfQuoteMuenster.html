@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.8.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "bar", "color": "red"}, "encoding": {"tooltip": [{"type": "quantitative", "field": "Erste Dosis Anteilig"}], "x": {"type": "quantitative", "field": "Erste Dosis Anteilig", "scale": {"domain": [0, 100]}, "title": "Einfach geimpft (rot)"}, "y": {"type": "ordinal", "field": "Altersgruppen"}}}, {"mark": {"type": "bar", "color": "green"}, "encoding": {"tooltip": [{"type": "quantitative", "field": "Zweite Dosis Anteilig"}], "x": {"type": "quantitative", "field": "Zweite Dosis Anteilig", "title": "Doppelt geimpft (gr\u00fcn)"}, "y": {"type": "ordinal", "field": "Altersgruppen"}}}, {"mark": {"type": "bar", "color": "blue"}, "encoding": {"tooltip": [{"type": "quantitative", "field": "Dritte Dosis Anteilig"}], "x": {"type": "quantitative", "field": "Dritte Dosis Anteilig", "title": "Dreifach geimpft (blau)"}, "y": {"type": "ordinal", "field": "Altersgruppen"}}}], "data": {"name": "data-51c79d041ac76e54d72acff9f1a0a82c"}, "height": 200, "title": {"text": "Impfquote in M\u00fcnster nach Altersgruppen Datum:2021-09-22", "subtitle": ["Datenqulle: RKI"]}, "width": 800, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-51c79d041ac76e54d72acff9f1a0a82c": [{"Altersgruppen": "Gesamtbev\u00f6lkerung", "Erste Dosis Absolut": 246053, "Erste Dosis Anteilig": 77.76569754395501, "Zweite Dosis Absolut": 247367, "Zweite Dosis Anteilig": 78.18099069857112, "Dritte Dosis Absolut": 2970, "Dritte Dosis Anteilig": 0.9386763083788713}, {"Altersgruppen": "12-17", "Erste Dosis Absolut": 9951, "Erste Dosis Anteilig": 66.60196773977646, "Zweite Dosis Absolut": 7952, "Zweite Dosis Anteilig": 53.22267585837628, "Dritte Dosis Absolut": 0, "Dritte Dosis Anteilig": 0.0}, {"Altersgruppen": "18-59", "Erste Dosis Absolut": 162706, "Erste Dosis Anteilig": 98.77372120976652, "Zweite Dosis Absolut": 167884, "Zweite Dosis Anteilig": 101.91712297997888, "Dritte Dosis Absolut": 821, "Dritte Dosis Anteilig": 0.4984034092978643}, {"Altersgruppen": "60+", "Erste Dosis Absolut": 73396, "Erste Dosis Anteilig": 99.44987940706214, "Zweite Dosis Absolut": 71531, "Zweite Dosis Anteilig": 96.92284761930571, "Dritte Dosis Absolut": 2149, "Dritte Dosis Anteilig": 2.9118452074469525}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
