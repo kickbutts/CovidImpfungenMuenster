@@ -31,7 +31,7 @@ jobs:
           sudo python -m pip install --upgrade pip
           sudo pip install -r requirements.txt
       - name: execute py script # run collectData.py to get the latest data
-        run: sudo python ImpfungMS.py
+        run: sudo python ImpfungenMS.py
 
       - name: commit files
         run: |
