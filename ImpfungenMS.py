@@ -6,10 +6,10 @@ import pandas as  pd
 #alt.data_transformers.disable_max_rows()
 #alt.renderers.enable('notebook')
 
-df_impfung=pd.read_csv("https://raw.githubusercontent.com/robert-koch-institut/COVID-19-Impfungen_in_Deutschland/master/Aktuell_Deutschland_Landkreise_COVID-19-Impfungen.csv")
+df_impfung=pd.read_csv("https://raw.githubusercontent.com/robert-koch-institut/COVID-19-Impfungen_in_Deutschland/master/Aktuell_Deutschland_Landkreise_COVID-19-Impfungen.csv", dtype={'LandkreisId_Impfort': str})
 
 
-df_impfung_muenster=df_impfung.loc[df_impfung['LandkreisId_Impfort'].isin([5515])]
+df_impfung_muenster=df_impfung.loc[df_impfung['LandkreisId_Impfort'].isin(['05515'])]
 datum = df_impfung_muenster['Impfdatum'].iat[-1]
 #df_impfung_muenster['Impfdatum'] =pd.to_datetime(df_impfung_muenster['Impfdatum'], format='%Y-%m-%d')
 einwohnerzahlMuenster=316403
