@@ -95,7 +95,7 @@ drei=alt.Chart(df_Münster_Anteilig).mark_bar(color='blue').encode(
 )
 vier=alt.Chart(df_Münster_Anteilig).mark_bar(color='yellow').encode(
     #x='Zweite Dosis Anteilig',
-    alt.X('Vierte Dosis Anteilig', title='Dreifach geimpft (gelb)'),
+    alt.X('Vierte Dosis Anteilig', title='Vierfach geimpft (gelb)'),
     y="Altersgruppen:O",
     tooltip=['Vierte Dosis Anteilig']
 )
