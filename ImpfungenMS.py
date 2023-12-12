@@ -75,6 +75,21 @@ df_Münster_Anteilig=pd.DataFrame({'Altersgruppen': ['Gesamtbevölkerung',
                                                 df_impfung_muenster.loc[(df_impfung_muenster['Impfschutz'] == 4) & (df_impfung_muenster['Altersgruppe'] == '12-17') , 'Anzahl'].sum()/14972*100,
                                                 df_impfung_muenster.loc[(df_impfung_muenster['Impfschutz'] == 4) & (df_impfung_muenster['Altersgruppe'] == '18-59') , 'Anzahl'].sum()/191880*100,
                                                 df_impfung_muenster.loc[(df_impfung_muenster['Impfschutz'] == 4) & (df_impfung_muenster['Altersgruppe'] == '60+') , 'Anzahl'].sum()/73755*100,
+                                            ],
+                                             'fünfte Dosis Absolut':[
+                                                df_impfung_muenster.loc[df_impfung_muenster['Impfschutz'] == 5, 'Anzahl'].sum(),
+                                                df_impfung_muenster.loc[(df_impfung_muenster['Impfschutz'] == 5) & (df_impfung_muenster['Altersgruppe'] == '05-11') , 'Anzahl'].sum(),
+                                                df_impfung_muenster.loc[(df_impfung_muenster['Impfschutz'] == 5) & (df_impfung_muenster['Altersgruppe'] == '12-17') , 'Anzahl'].sum(),
+                                                df_impfung_muenster.loc[(df_impfung_muenster['Impfschutz'] == 5) & (df_impfung_muenster['Altersgruppe'] == '18-59') , 'Anzahl'].sum(),
+                                                df_impfung_muenster.loc[(df_impfung_muenster['Impfschutz'] == 5) & (df_impfung_muenster['Altersgruppe'] == '60+') , 'Anzahl'].sum(),
+                                            ],
+                                            'fünfte Dosis Anteilig':[
+                                            df_impfung_muenster.loc[df_impfung_muenster['Impfschutz'] == 5, 'Anzahl'].sum()/einwohnerzahlMuenster*100,
+                                                df_impfung_muenster.loc[(df_impfung_muenster['Impfschutz'] == 5) & (df_impfung_muenster['Altersgruppe'] == '05-11') , 'Anzahl'].sum()/20594*100,
+                                                df_impfung_muenster.loc[(df_impfung_muenster['Impfschutz'] == 5) & (df_impfung_muenster['Altersgruppe'] == '12-17') , 'Anzahl'].sum()/14972*100,
+                                                df_impfung_muenster.loc[(df_impfung_muenster['Impfschutz'] == 5) & (df_impfung_muenster['Altersgruppe'] == '18-59') , 'Anzahl'].sum()/191880*100,
+                                                df_impfung_muenster.loc[(df_impfung_muenster['Impfschutz'] == 5) & (df_impfung_muenster['Altersgruppe'] == '60+') , 'Anzahl'].sum()/73755*100,
+                                              
                                             ]})
 erst=alt.Chart(df_Münster_Anteilig).mark_bar(color='red').encode(
     alt.X('Erste Dosis Anteilig', title='Einfach geimpft (rot)',scale=alt.Scale(domain=[0,100])),
@@ -99,8 +114,15 @@ vier=alt.Chart(df_Münster_Anteilig).mark_bar(color='yellow').encode(
     y="Altersgruppen:O",
     tooltip=['Vierte Dosis Anteilig']
 )
+fuenf=alt.Chart(df_Münster_Anteilig).mark_bar(color='#b15928').encode(
+    #x='Zweite Dosis Anteilig',
+    alt.X('Fünfte Dosis Anteilig', title='Fünfach geimpft'),
+    y="Altersgruppen:O",
+    tooltip=['Fünfte Dosis Anteilig']
+)
 
-final=(erst + zweit+drei+vier).properties(
+
+final=(erst + zweit+drei+vier+fuenf).properties(
     title={
     'text':'Impfquote in Münster nach Altersgruppen Datum:'+datum,
     'subtitle':['Datenquelle: RKI',]
