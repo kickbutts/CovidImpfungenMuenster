@@ -76,14 +76,14 @@ df_Münster_Anteilig=pd.DataFrame({'Altersgruppen': ['Gesamtbevölkerung',
                                                 df_impfung_muenster.loc[(df_impfung_muenster['Impfschutz'] == 4) & (df_impfung_muenster['Altersgruppe'] == '18-59') , 'Anzahl'].sum()/191880*100,
                                                 df_impfung_muenster.loc[(df_impfung_muenster['Impfschutz'] == 4) & (df_impfung_muenster['Altersgruppe'] == '60+') , 'Anzahl'].sum()/73755*100,
                                             ],
-                                             'fünfte Dosis Absolut':[
+                                             'Fünfte Dosis Absolut':[
                                                 df_impfung_muenster.loc[df_impfung_muenster['Impfschutz'] == 5, 'Anzahl'].sum(),
                                                 df_impfung_muenster.loc[(df_impfung_muenster['Impfschutz'] == 5) & (df_impfung_muenster['Altersgruppe'] == '05-11') , 'Anzahl'].sum(),
                                                 df_impfung_muenster.loc[(df_impfung_muenster['Impfschutz'] == 5) & (df_impfung_muenster['Altersgruppe'] == '12-17') , 'Anzahl'].sum(),
                                                 df_impfung_muenster.loc[(df_impfung_muenster['Impfschutz'] == 5) & (df_impfung_muenster['Altersgruppe'] == '18-59') , 'Anzahl'].sum(),
                                                 df_impfung_muenster.loc[(df_impfung_muenster['Impfschutz'] == 5) & (df_impfung_muenster['Altersgruppe'] == '60+') , 'Anzahl'].sum(),
                                             ],
-                                            'fünfte Dosis Anteilig':[
+                                            'Fünfte Dosis Anteilig':[
                                             df_impfung_muenster.loc[df_impfung_muenster['Impfschutz'] == 5, 'Anzahl'].sum()/einwohnerzahlMuenster*100,
                                                 df_impfung_muenster.loc[(df_impfung_muenster['Impfschutz'] == 5) & (df_impfung_muenster['Altersgruppe'] == '05-11') , 'Anzahl'].sum()/20594*100,
                                                 df_impfung_muenster.loc[(df_impfung_muenster['Impfschutz'] == 5) & (df_impfung_muenster['Altersgruppe'] == '12-17') , 'Anzahl'].sum()/14972*100,
