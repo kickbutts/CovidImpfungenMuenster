@@ -2,7 +2,7 @@ name: Create Website
 
 on:
   schedule:
-    - cron: '00 14 * * 2' # runs at 14:00 UTC everyday 16:00 local time
+    - cron: '0 0 1 * *' # runs at At 12:00 AM, on day 1 of the month
 
   workflow_dispatch:
     inputs:
